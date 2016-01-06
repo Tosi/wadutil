@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1452062309 source:c:\users\kizluk\programs\wadutil\main.cpp
+	"ArgParser.h"
+	"version.h"
+	<iostream>
+	<string>
+
+1451973991 source:c:\users\kizluk\programs\wadutil\src\wadheader.cpp
+	"wadheader.h"
+
+1451974042 c:\users\kizluk\programs\wadutil\include\wadheader.h
+	<cstdint>
+	<cstring>
+	<istream>
+
+1451974846 source:c:\users\kizluk\programs\wadutil\src\wadarchive.cpp
+	"WADArchive.h"
+
+1451974741 c:\users\kizluk\programs\wadutil\include\wadarchive.h
+	<string>
+	<istream>
+	<fstream>
+	"wadheader.h"
+
+1452055475 source:c:\users\kizluk\programs\wadutil\src\argparserconf.cpp
+	"ArgParserConf.h"
+	<iterator>
+
+1452055466 c:\users\kizluk\programs\wadutil\include\argparserconf.h
+	<vector>
+	<string>
+
+1452063104 source:c:\users\kizluk\programs\wadutil\src\argparser.cpp
+	"ArgParser.h"
+	<iostream>
+	<cstdlib>
+
+1452062146 c:\users\kizluk\programs\wadutil\include\argparser.h
+	"ArgParserConf.h"
+	<vector>
+	<string>
+	<iostream>
+	<map>
+
+1452063423 c:\users\kizluk\programs\wadutil\version.h
+

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wadutil" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="src\;src\ArgParser\;src\archives\;src\archives\wad\;src\utils\;" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/wadutil" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="test -v hello -i --not-really-argument -q -h goodbye" />
+				<Compiler>
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/wadutil" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wextra" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/ArgParser.h">
+			<Option virtualFolder="src/ArgParser/" />
+		</Unit>
+		<Unit filename="include/ArgParserConf.h">
+			<Option virtualFolder="src/ArgParser/" />
+		</Unit>
+		<Unit filename="include/WADArchive.h">
+			<Option virtualFolder="src/archives/wad/" />
+		</Unit>
+		<Unit filename="include/wadheader.h">
+			<Option virtualFolder="src/archives/wad/" />
+		</Unit>
+		<Unit filename="main.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
+		<Unit filename="src/ArgParser.cpp">
+			<Option virtualFolder="src/ArgParser/" />
+		</Unit>
+		<Unit filename="src/ArgParserConf.cpp">
+			<Option virtualFolder="src/ArgParser/" />
+		</Unit>
+		<Unit filename="src/WADArchive.cpp">
+			<Option virtualFolder="src/archives/wad/" />
+		</Unit>
+		<Unit filename="src/wadheader.cpp">
+			<Option virtualFolder="src/archives/wad/" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
