@@ -5,14 +5,14 @@
 		<Option title="wadutil" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="src\;src\ArgParser\;src\archives\;src\archives\wad\;src\utils\;" />
+		<Option virtualFolders="src\;src\ArgParser\;src\archives\;src\archives\wad\;src\utils\;src\version\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/wadutil" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters="test -v hello -i --not-really-argument -q -h goodbye" />
+				<Option parameters="--fake --help goodbye" />
 				<Compiler>
 					<Add option="-Wextra" />
 					<Add option="-Wall" />
@@ -52,9 +52,6 @@
 		<Unit filename="include/wadheader.h">
 			<Option virtualFolder="src/archives/wad/" />
 		</Unit>
-		<Unit filename="main.cpp">
-			<Option virtualFolder="src/" />
-		</Unit>
 		<Unit filename="src/ArgParser.cpp">
 			<Option virtualFolder="src/ArgParser/" />
 		</Unit>
@@ -64,14 +61,26 @@
 		<Unit filename="src/WADArchive.cpp">
 			<Option virtualFolder="src/archives/wad/" />
 		</Unit>
+		<Unit filename="src/main.cpp">
+			<Option virtualFolder="src/" />
+		</Unit>
 		<Unit filename="src/wadheader.cpp">
 			<Option virtualFolder="src/archives/wad/" />
+		</Unit>
+		<Unit filename="version.h">
+			<Option virtualFolder="src/version/" />
 		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
 			<lib_finder disable_auto="1" />
+			<AutoVersioning>
+				<Scheme minor_max="10" build_max="0" rev_max="0" rev_rand_max="10" build_times_to_increment_minor="100" />
+				<Settings autoincrement="1" date_declarations="1" use_define="0" update_manifest="0" do_auto_increment="1" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="version.h" />
+				<Changes_Log show_changes_editor="0" app_title="released version %M.%m.%b of %p" changeslog_path="ChangesLog.txt" />
+				<Code header_guard="VERSION_H" namespace="AutoVersion" prefix="" />
+			</AutoVersioning>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
