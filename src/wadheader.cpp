@@ -1,4 +1,5 @@
 #include "wadheader.h"
+using std::istream;
 
 WADHeader::WADHeader()
 {
