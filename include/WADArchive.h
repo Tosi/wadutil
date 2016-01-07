@@ -5,18 +5,17 @@
 #include <istream>
 #include <fstream>
 #include "wadheader.h"
-
-using std::string;
-using std::ifstream;
+#include "WADDirectory.h"
 
 class WADArchive
 {
     public:
-        WADArchive(const string& fname);
+        WADArchive(const std::string& fname);
         ~WADArchive();
     private:
         WADHeader* header;
-        ifstream is;
+        WADDirectory* directory;
+        std::ifstream is;
 };
 
 #endif // WADARCHIVE_H

@@ -1,11 +1,16 @@
 #include "WADArchive.h"
-using std::ios_base;
+using std::ios;
+using std::string;
+using std::ifstream;
 
 WADArchive::WADArchive(const string& filename)
 {
-    is = ifstream(filename, ios_base::in | ios_base::binary);
+    header = nullptr;
+    directory = nullptr;
+    is = ifstream(filename, ios::in | ios::binary);
     if(is.is_open()) {
         header = new WADHeader(is);
+        directory = new WADDirectory(*header, is);
     } else {
         //TODO: Throw an exception or something
         header = nullptr;
@@ -14,7 +19,11 @@ WADArchive::WADArchive(const string& filename)
 
 WADArchive::~WADArchive()
 {
-    delete header;
+    if(header)
+        delete header;
+    if(directory)
+        delete directory;
+
     if(is.is_open()) {
         is.close();
     }

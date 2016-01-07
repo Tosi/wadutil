@@ -24,3 +24,12 @@ WADDirectory::~WADDirectory()
 
     delete lumps;
 }
+
+WADLump* WADDirectory::getLump(const string& name)
+{
+    map<string, WADLump*>::iterator e = lumps->find(name);
+    if(e == lumps->end()) {
+        return nullptr;
+    }
+    return e->second;
+}
