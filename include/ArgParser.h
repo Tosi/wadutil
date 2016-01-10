@@ -21,6 +21,8 @@ class ArgParser
         bool parse(bool exit_on_unrecognized = false);
         void showHelp(std::ostream& os = std::cout);
 
+        const std::vector<std::string>* get_args() const { return args; }
+
     protected:
         bool buildLookups();
 

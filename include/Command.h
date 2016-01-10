@@ -16,8 +16,8 @@ class Command
         virtual const std::string& get_description() const = 0;
 
     protected:
-        std::ifstream input;
-        std::ofstream output;
+        std::string in_file;
+        std::string out_file;
         bool has_input;
         bool has_output;
     private:

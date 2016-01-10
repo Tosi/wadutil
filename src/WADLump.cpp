@@ -2,8 +2,10 @@
 #include <string>
 using std::istream;
 using std::string;
+using std::streamoff;
 
-WADLump::WADLump(istream& is)
+WADLump::WADLump(istream& input)
+    : is(input)
 {
     //TODO: Handle endiannness
     //Get offset to lump in file
@@ -17,6 +19,34 @@ WADLump::WADLump(istream& is)
     name = string(lmpname_tmp);
 
     data = nullptr;
+}
+
+//Load the lump data into memory
+bool WADLump::load()
+{
+    if(data == nullptr) {
+        data = new char[lmpsize];
+        streamoff oldpos = is.tellg();
+        is.seekg(filepos);
+        is.read(data, lmpsize);
+        is.seekg(oldpos);
+    }
+
+    return true;
+}
+
+//Unload the lump data from memory
+void WADLump::unload()
+{
+    if(data) {
+        delete data;
+        data = nullptr;
+    }
+}
+
+//Get the data of the lump
+char* WADLump::get_data() {
+    return load() ? data : nullptr;
 }
 
 WADLump::~WADLump()

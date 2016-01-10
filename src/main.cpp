@@ -1,11 +1,14 @@
 #include "ArgParser.h"
 #include "version.h"
+#include "ListLumpsCommand.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::cout;
 using std::endl;
 using std::string;
+using std::vector;
 using namespace AutoVersion;
 
 static ArgParser* parser;
@@ -37,6 +40,15 @@ int main(int argc, const char** argv)
         return EXIT_FAILURE;
     }
 
+    //Test command
+    const vector<string>* args = parser->get_args();
+    if(args->size() > 1 && args->at(0) == "list") {
+        const string fname = args->at(1);
+        ListLumpsCommand llc(fname);
+        llc.run();
+    }
+
+    delete parser;
     return 0;
 }
 

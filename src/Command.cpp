@@ -6,24 +6,17 @@ using std::ofstream;
 using std::ios;
 
 Command::Command(const string& input_filename, const string& output_filename)
-    : input(ifstream(input_filename, ios::in | ios::binary)),
-      output(ofstream(output_filename, ios::out | ios::binary))
+    : in_file(input_filename), out_file(output_filename)
 {
     has_input = false;
     has_output = false;
-    if(input.is_open()) {
+    if(in_file != "") {
        has_input = true;
     }
-    if(output.is_open()) {
+    if(out_file != "") {
         has_output = true;
     }
 }
 
 Command::~Command() {
-    if(has_input) {
-        input.close();
-    }
-    if(has_output) {
-        output.close();
-    }
 }

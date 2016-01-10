@@ -15,6 +15,7 @@ class WADDirectory
         WADDirectory(WADHeader& header, std::istream& is);
         ~WADDirectory();
         WADLump* getLump(const std::string& name);
+        const std::map<std::string, WADLump*>* get_lumps() const { return lumps; }
     protected:
     private:
         std::map<std::string, WADLump*>* lumps;
